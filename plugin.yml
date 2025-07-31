@@ -1,0 +1,15 @@
+name: Smart_RTP
+version: 1.0
+main: org.engine.RTPQueuePlugin
+api-version: 1.16
+softdepend: [PlaceholderAPI]
+commands:
+  rtpqueue:
+    description: Open the RTP Queue menu
+    usage: /rtpqueue [leave]
+    aliases: [rtpq, rqueue]
+    permission: rtpqueue.use
+permissions:
+  rtpqueue.use:
+    description: Allows the use of the RTP Queue system
+    default: true

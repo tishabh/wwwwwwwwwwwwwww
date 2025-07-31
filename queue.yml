@@ -1,0 +1,171 @@
+# RTPQueue Configuration
+
+# Queue Settings
+cooldown: 60                # Time in seconds before a player can queue again
+max-distance: 5000          # Maximum teleport distance
+min-distance: 500           # Minimum teleport distance
+safe-landing: true          # Ensure players land on solid ground
+prevent-fall-damage: true   # Prevent fall damage on landing
+worlds:                     # Allowed worlds for queue
+  - world
+  - world_nether
+  - world_the_end
+
+settings:
+  auto-queue: false
+  player-spacing: 5
+  queue-update-interval: 20
+  queue-processing-interval: 100
+  queue-announcement-interval: 600
+  match-timeout: 300
+  allow-party-queue: true
+
+max-queue-time: 600
+teleport-countdown: 4
+max-location-attempts: 10
+
+timers:
+  queue-processing: 100
+  announcements: 600
+  teleport-countdown: 20
+
+sound:
+  match-found:
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    volume: 1.0
+    pitch: 1.0
+  queue-join:
+    sound: UI_BUTTON_CLICK
+    volume: 1.0
+    pitch: 1.0
+  queue-leave:
+    sound: UI_BUTTON_CLICK
+    volume: 1.0
+    pitch: 0.5
+
+messages:
+  prefix: "&a[RTPQueue] &r"
+  join-queue-solo: "&fYou joined the solo queue!"
+  join-queue-team: "&fYou joined the team queue!"
+  leave-queue-solo: "&fYou left the solo queue! Feel free to rejoin anytime."
+  leave-queue-team: "&fYou left the team queue! Feel free to rejoin anytime."
+  match-found-solo: "&aMatch found! Good luck!"
+  match-found-team: "&aTeam match found! Good luck!"
+  teleport-success-solo: "&aTeleporting now! Get ready for battle!"
+  teleport-success-team: "&aYour team is teleporting! Get ready for battle!"
+  already-in-queue: "&cYou are already in a queue!"
+  not-in-queue: "&cYou are not currently in any queue."
+  world-not-found: "&cWorld not found: {world}"
+  cooldown: "&cYou must wait {time} seconds before queueing again!"
+  party-too-large: "&cYour party is too large for this queue!"
+  party-required: "&cYou must be in a party to join a team queue!"
+
+gui:
+  enabled: true
+  size: 27
+  title: "&8&l    ▪ &nRTP QUEUE&8&l ▪"
+  filler:
+    material: GRAY_STAINED_GLASS_PANE
+    name: " "
+  world-items:
+    overworld:
+      material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViZjZiZTgyZTgyM2U1ODJmZjhmNDVlMDFjZjUxNzUxNzM0ZDlhNzc2Y2ZmNTE0ZTg4ZWEyNmQ0OTczYmJmMCJ9fX0=
+      slot: 11
+      name: "&a&lOVERWORLD QUEUE"
+      lore:
+        - " &8▪ &aRandom Teleport (RTP)"
+        - ""
+        - " &f&lDETAILS:"
+        - " &8▪ &7Safe, fair, and fun!"
+        - " &8▪ &7No fall damage, safe landing"
+        - " &8▪ &7Cooldown: &a{cooldown}s"
+        - " &8▪ &7Players in queue: &a{queue_size}"
+        - ""
+        - "&e[▶] Click to join queue."
+      enabled: true
+    close:
+      material: BARRIER
+      slot: 15
+      name: "&c&lCLOSE"
+      lore:
+        - "&7Click to close the RTP queue menu."
+      enabled: true
+    gray_glass:
+      material: GRAY_STAINED_GLASS_PANE
+      data: 1
+      slots: [0,8,9,17,18,26]
+      name: "&f"
+      lore: ""
+      enabled: true
+    brown_glass:
+      material: BROWN_STAINED_GLASS_PANE
+      data: 1
+      slots: [2,20]
+      name: "&f"
+      lore: ""
+      enabled: true
+    white_glass:
+      material: WHITE_STAINED_GLASS_PANE
+      data: 1
+      slots: [4,22]
+      name: "&f"
+      lore: ""
+      enabled: true
+    blue_glass:
+      material: LIGHT_BLUE_STAINED_GLASS_PANE
+      data: 1
+      slots: [6,24]
+      name: "&f"
+      lore: ""
+      enabled: true
+
+effect:
+  enabled: true
+  # Potion effect settings
+  effect-enabled: true         # Enable/disable potion effect
+  effect-type: DARKNESS        # Any valid Bukkit effect (e.g. DARKNESS, BLINDNESS, SLOW, etc)
+  duration: 60                 # Duration in ticks (20 ticks = 1 second)
+  amplifier: 1                 # Effect strength (0 = level 1)
+  ambient: false               # Show particles for effect
+  particles: false             # Show effect particles
+  icon: false                  # Show effect icon
+
+  # Sound settings
+  sound-enabled: true          # Enable/disable sound
+  sound: ENTITY_WARDEN_SONIC_BOOM  # Any valid Bukkit sound
+  sound-volume: 1.0
+  sound-pitch: 1.0
+
+  # Particle trail system
+  trail-enabled: true          # Enable/disable particle trail
+  trail-type: SOUL_FIRE_FLAME  # Default trail type (see list below)
+  trail-radius: 0.5            # Distance from player (blocks)
+  trail-y-offset: 1.0          # Height above player
+  trail-interval: 2            # Ticks between trail updates
+  trail-particle-count: 4      # Particles per update
+  # Available trail types (choose one):
+  # - SOUL_FIRE_FLAME
+  # - ENCHANTMENT_TABLE
+  # - PORTAL
+  # - ELECTRIC_SPARK
+  # - WITCH
+  # - TOTEM
+  # - DRAGON_BREATH
+  # - FLAME
+  # - REDSTONE
+  # - CLOUD
+  # - HEART
+  # - VILLAGER_HAPPY
+  # - SPELL
+  # - CRIT
+  # - CAMPFIRE_SIGNAL_SMOKE
+  # - SLIME
+  # - SNOWFLAKE
+  # - ASH
+  # - NOTE
+  # - BUBBLE_POP
+  # - COMPOSTER
+
+  # RTP Freeze settings
+  freeze-enabled: true         # Enable/disable freeze after RTP
+  freeze-seconds: 3            # How many seconds to freeze after teleport
